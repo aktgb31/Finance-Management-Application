@@ -1,0 +1,8 @@
+NODE_ENV="development"
+PORT="3000"
+DATABASE_URI="localhost"
+DATABASE_NAME="mydb"
+DATABASE_USER="myuser"
+DATABASE_PASS="mypassword"
+ENCRYPTION_KEY="myencryptionkey"
+ENCRYPTION_SALT="myencryptionsalt"

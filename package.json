@@ -1,0 +1,30 @@
+{
+  "name": "finance-management-application",
+  "version": "1.0.0",
+  "description": "A web app to manage personal finances.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aktgb31/Finance-Management-Application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aktgb31/Finance-Management-Application/issues"
+  },
+  "homepage": "https://github.com/aktgb31/Finance-Management-Application#readme"
+}
