@@ -6,7 +6,7 @@ if (envFound.error) {
 
 const Sequelize = require("sequelize");
 
-const DATABASE= {
+const DATABASE = {
     name: process.env.DATABASE_NAME,
     uri: process.env.DATABASE_URI,
     user: process.env.DATABASE_USER,

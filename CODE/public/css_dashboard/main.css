@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');     
+     body {
+               font-weight: 300;
+               background-color: #f7f7f7 !important;
+               font-family: 'Montserrat', sans-serif;
+               margin :0;
+                
+              }
+              label{
+                margin-top: 3%;
+              }
+
+             #main-moreInfoLink  {
+             /* top: 125px !important;*/
+             }
+
+            
+             .main-dashboardContainer, .main-dashboardMobileContainer {
+               background-color: #f7f7f7 !important;
+             }
+            
+             li{
+              font-size: 16px;
+             }
+             .main-header #main-viewAll {
+              /*width: 192px !important;*/
+             }
+             .main-infoFooter {
+                margin-left: 0px !important;
+             }
+             .main-downloadlink {
+              font-size: 7px !important;
+              font: -webkit-control;
+             }
+             .main-infoBar {
+                padding-left: 0px !important;              
+             }
+             .main-infoBar .main-infoBody {
+                padding-left: 13px !important;
+             }
+             .main-infoBar .main-downloadBtn {
+              padding: 20px 14px 20px 0px !important;
+              max-width: 225px;
+             }
+
+             .main-infoBar .main-downloadBtn a {
+                padding: 20px 0 20px 34px;
+             }
+             .row.content {
+               height: 550px
+             }
+             /* Set gray background color and 100% height */
+                 
+             .sidenav {
+              background: linear-gradient(to bottom, #02aab0, #00cdac);
+             }
+
+              #nav{
+                max-height: 2200px;
+                position: sticky;
+                
+              }         
+             .nav-stacked {
+               margin-top: 35px;
+             }
+             
+             .nav-stacked li.active a {
+               border-left: 8px solid #1164B4;
+             }
+             
+             .nav-stacked li a {
+               margin-left: -17px;
+             }
+             .nav li.active
+             {
+               margin-left: 1px;
+             }
+             
+             .nav-stacked li a,
+             .nav-stacked li.active a {
+               color: black;
+             }
+             
+             .nav-stacked li a:hover,
+             .nav-stacked li a:active,
+             .nav-stacked li.active a:hover,
+             .nav-stacked li.active a:active,
+             .nav-stacked li.active a:focus {
+               background: #b5ecec;
+               color: black;
+             }
+             
+             .nav-stacked li.active a {
+               background: none;
+               font-weight: 600;
+               color: black;
+               
+             }
+                         
+             h1 {
+               margin: 5px 0 0;
+               font-weight: 300;
+             }
+             
+             h5 {
+               color: #666666;
+             }
+             
+             hr {
+               margin: 10px 0 15px;
+             }
+
+             #delet{
+              font-family: 'Montserrat', sans-serif; 
+              background-color:	#DC3545;
+              border: 1px solid #DC3545;
+              margin-top: 0%;
+             }
+             
+             button {
+              border-radius: 15px;
+              margin-top: 2%;
+              border: 1px solid #02aab0;
+              background-color: #02aab0;
+              color: #FFFFFF;
+              font-size: 12px;
+              font-weight: bold;
+              padding: 10px 45px;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              transition: transform 80ms ease-in;
+            }
+            
+            button:active {
+              transform: scale(0.95);
+            }
+            
+            button:focus {
+              outline: none;
+            }
+            
+            button.ghost {
+              background-color: transparent;
+              border-color: #FFFFFF;
+                margin-top: 15px;
+            }
+             
+             .well {
+               background: #ffffff;
+               box-shadow: none
+             }
+             
+             .form-inline .input-group {
+               width: 83%;
+             }
+             
+             .datetimepickerwrapper {
+              text-align: right;
+              margin-top: 27px;
+             }
+             #loader{
+              position:fixed;
+              z-index: 10;
+              background: transparent;
+              background-color: #fff;
+              opacity: .6;
+             }
+             #loader img
+             {
+                margin-top: 30%;
+                background: white;
+             }
+
+
+             .sidenav-container {
+                width: 200px;
+             }
+
+             .user-info {
+                padding: 6px 10px;
+                color: #7b7979;
+                margin-right: 10px;
+             }
+
+             @media screen and (max-width: 960px) { 
+                .sidenav-container {
+                  max-width: 200px;
+                }
+
+                h1 { 
+                  font-size: 24px;
+                }
+
+                .datetimepickerwrapper {
+                  text-align: left;
+              }
+             }
+            
+             
+             @media screen and (max-width: 767px) {
+              
+              
+              h1 { 
+                  font-size: 18px;
+                }
+              
+
+               .row.content {
+                 height: auto;  /* On small screens, set height to 'auto' for the grid */
+               }
+               .form-inline .input-group {
+                 width: 100%;
+               }
+             }
+
+             @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+             *, *:before, *:after {
+               box-sizing: border-box;
+            }
+             
+             .container {
+               
+               display: flex;
+               justify-content: center;
+               align-items: center;
+              
+            }
+             .table {
+               width: 100%;
+               border: 1px solid #02aab0;
+            }
+             .table-header {
+               display: flex;
+               width: 100%;
+               background: #02aab0;
+               padding: 18px 0;
+            }
+             .table-row {
+               display: flex;
+               width: 100%;
+               padding: 18px 0;
+               border-width: 2px;
+            }
+            
+             /*.table-row:nth-of-type(odd) {
+               background: #defeff;
+            }*/
+             .table-data, .header__item {
+               flex: 1 1 20%;
+               text-align: center;
+            }
+             .header__item {
+               text-transform: uppercase;
+               color: white;
+             }
+             .filter__link {
+               color: white;
+               text-decoration: none;
+               position: relative;
+               display: inline-block;
+               padding-left: 24px;
+               padding-right: 24px;
+            }
+             .filter__link::after {
+               content: '';
+               position: absolute;
+               right: -18px;
+               color: white;
+               font-size: 12px;
+               top: 50%;
+               transform: translateY(-50%);
+            }
+             .filter__link.desc::after {
+               content: '(desc)';
+            }
+             .filter__link.asc::after {
+               content: '(asc)';
+            }
+
+            .flex-box {
+              display:flex;
+              justify-content:space-between;
+            }
+            
+            .flex-box-2 {
+              display:flex;
+              justify-content: flex-end;
+            }
+             
+            
