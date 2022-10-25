@@ -6,6 +6,7 @@ const path = require('path');
 const hbs = require('hbs');
 const defaultRoutes = require('./routes/routes');
 // const userRoutes = require('./routes/userRoutes');
+const expenseRoutes = require('./routes/expenseRoutes');
 const app = express();
 
 app.use(
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // app.use('/user',userRoutes);
+app.use('/expense', expenseRoutes);
 app.use('/', defaultRoutes);
 
 // Error Handler

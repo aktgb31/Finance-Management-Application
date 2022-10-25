@@ -56,7 +56,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
     }
 
     req.session.user = { name: user.name, emailId: user.emailId };
-    res.redirect("/dashboard");
+    res.redirect("/");
 });
 
 // User Dasboard

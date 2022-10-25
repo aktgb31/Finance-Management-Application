@@ -1,27 +1,34 @@
 const { DataTypes } = require("sequelize");
 const Db = require("../config/database");
+const { Expense } = require("./expense");
 
 // Tag Model
 const Tag = Db.define("tag", {
-    id:{
+    id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
+        // autoIncrement: true,
     },
-    name:{
+    name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    multiplier:{
-        type:DataTypes.ENUM("1","-1"),
+    multiplier: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        validator: {
+            isIn: {
+                args: [[1, -1]],
+                msg: "Multiplier can only be 1 or -1"
+            }
+        }
     }
-},{ timestamps: false });
+}, { timestamps: false });
 
-Tag.hasMany(Expense,{
+Tag.hasMany(Expense, {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
 });
 
-exports.Tag = Tag;
+module.exports = Tag;

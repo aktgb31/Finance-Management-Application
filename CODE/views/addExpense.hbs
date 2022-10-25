@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>User Dashboard</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="../charts/fusioncharts.js"></script>
+  <script type="text/javascript" src="../charts/themes/fusioncharts.theme.zune.js?cacheBust=56"></script>
+  <script type="text/javascript" src="../charts/fusioncharts.jqueryplugin.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css_dashboard/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css_dashboard/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="../css_dashboard/bootstrap-datetimepicker.css">
+  <link rel="stylesheet" type="text/css" href="../css_dashboard/main.css">
+
+
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/moment-with-locales.js"></script>
+
+  <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
+
+  <script type="text/javascript" src="../js/dashboard.js"></script>
+  <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
+
+</head>
+
+<body>
+  <!-- 
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 hidden" id="loader">
+           <center>
+              <img src="assets/ajax-loader.gif">
+            </center>
+        </div>
+    -->
+  {{> topHeader}}
+
+  <div class="container-fluid">
+    <div class="row content">
+      {{> sideBar}}
+      <br>
+
+      <div class="col-sm-9 col-md-9 col-lg-10" id="contemt-main">
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" id="dashboard">
+            <h1>Add expenses</h1>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
+          </div>
+
+        </div>
+
+        <div class="col-sm-6">
+          <label>Date:</label>
+          <div class='input-group date' id='datetimepicker6'>
+
+            <input type='text' class="form-control" value="01/06/2022" data-provide="datepicker" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+
+          <label>Spent on:</label>
+          <select class="form-control">
+            <option>Food</option>
+            <option>Entertainment</option>
+            <option>Education and Accommodation</option>
+            <option>Transportation</option>
+            <option>Clothing and Shopping</option>
+          </select>
+
+          <label>Amount in Rs.:</label>
+          <input type='number' class="form-control" min="1" placeholder="Amount" />
+
+          <label for="remarksText">Remarks (if any):</label>
+          <textarea class="form-control" id="remarksText" rows="3"
+            placeholder="Details on where the money was spent"></textarea>
+          <button type="button"
+            style="border-radius:15px; display: block; margin:0 auto; margin-top: 3%;">SUBMIT</button>
+
+        </div>
+        <div class="col-sm-6">
+          <img src="assets/add_exp.png" width="500px" style="display: block; margin:0 auto; margin-top: -10%;" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>

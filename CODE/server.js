@@ -1,6 +1,8 @@
 const Db = require("./config/database");
 const { PORT, ENVIRONMENT } = require("./config");
 const { emailService } = require("./utils/mailer");
+const syncTags = require("./utils/syncTags");
+const app = require("./app");
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -14,10 +16,11 @@ const force = false;
 Db.authenticate().then(async () => {
     console.log("Connection to Database has been established successfully");
     await Db.sync({ force: force });
-}).then(() => {
+}).then(async () => {
     console.log("Models Synced.");
+    await syncTags();
 }).catch((err) => {
-    console.log("Unable to connect to Database", err.message);
+    console.log("Database Error", err);
     process.exit(1);
 });
 
@@ -31,8 +34,6 @@ if (ENVIRONMENT != "development")
             process.exit(1);
         });
 
-
-const app = require("./app");
 
 const server = app.listen(PORT, (err) => {
     if (err) {

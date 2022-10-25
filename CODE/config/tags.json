@@ -1,0 +1,32 @@
+{
+    "1": {
+        "id": 1,
+        "name": "Food",
+        "multiplier": -1
+    },
+    "2": {
+        "id": 2,
+        "name": "Transport",
+        "multiplier": -1
+    },
+    "3": {
+        "id": 3,
+        "name": "Entertainment",
+        "multiplier": -1
+    },
+    "4": {
+        "id": 4,
+        "name": "Salary",
+        "multiplier": 1
+    },
+    "5": {
+        "id": 5,
+        "name": "Investment",
+        "multiplier": 1
+    },
+    "6": {
+        "id": 6,
+        "name": "Other",
+        "multiplier": 1
+    }
+}

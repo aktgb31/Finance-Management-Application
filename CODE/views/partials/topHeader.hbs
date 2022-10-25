@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle user-info" data-toggle="collapse" data-target="#useInfo">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="useInfo">
+            <ul class="nav navbar-nav">
+                <li class="text-center">
+                    <h2 class="text-uppercase">Welcome</h2>
+                    <img src="assets/PR.png" alt="" width="70" height="70" style="border-radius:50px">
+                    <div class="text-uppercase">{{user.name}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="profile.html">Profile</a></li>
+                <li class="active"> <a href="dashboard.html">Expense Overview</a> </li>
+                <li><a href="addexp.html">Add Expenses</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
