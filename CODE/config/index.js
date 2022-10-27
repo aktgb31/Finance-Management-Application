@@ -17,5 +17,9 @@ module.exports = {
     ENCRYPTION: {
         key: process.env.ENCRYPTION_KEY,
         salt: process.env.ENCRYPTION_SALT,
+    },
+    API_KEYS:{
+        key: process.env.MAIL_API_KEY,
     }
+
 };
