@@ -6,8 +6,6 @@ $(document).ready(function() {
     function sidenavHeight() {
       var contemt_main = $("#contemt-main").height();
       var nav = $(".sidenav").height();
-      console.log(contemt_main + " " + nav);
-  
         if (nav <= contemt_main) {
           $(".sidenav").css("height", contemt_main);
           $("#loader").css("height", contemt_main);

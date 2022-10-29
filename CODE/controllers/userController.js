@@ -16,16 +16,16 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
     const password = passwordGenerator();
 
     const user = await User.findOne({ where: { emailId: email }, raw: true });
+    
     if (user) {
         throw new ErrorHandler(409, "User already exists");
-
     }
+
     const userInserted = await User.create({
         name: name,
         emailId: email,
         password: password
     });
-
 
     try {
         await sendVerificationEmail(email, password);
@@ -66,4 +66,9 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const [expenses, tags] = await Promise.all([getExpensesByEmail(req.session.user.emailId), Tag.findAll({ raw: true })]);
     console.log(expenses, tags);
     res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags });
+});
+
+exports.profile = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findOne({ where: { emailId: req.session.user.emailId } });
+    res.render("profile", {name: user.name, emailId: user.emailId, pass: user.password});
 });
