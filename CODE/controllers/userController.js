@@ -14,16 +14,16 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
     const password = passwordGenerator();
 
     const user = await User.findOne({ where: { emailId: email }, raw: true });
+    
     if (user) {
         throw new ErrorHandler(409, "User already exists");
-
     }
+
     const userInserted = await User.create({
         name: name,
         emailId: email,
         password: password
     });
-
 
     try {
         await sendVerificationEmail(email, password);
@@ -62,4 +62,9 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
 // User Dasboard
 exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     res.render("dashboard", { user: req.session.user });
+});
+
+exports.profile = catchAsyncErrors(async (req, res, next) => {
+    //const user = User.findOne({ where: { userEmailId: req.session.user.emailId } });
+    res.render("profile");
 });

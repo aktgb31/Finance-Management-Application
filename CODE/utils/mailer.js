@@ -1,18 +1,15 @@
-
 const sgMail = require('@sendgrid/mail');
 const { EMAIL, ENVIRONMENT, API_KEYS } = require("../config");
 
-const verificationSubject = "Finance Manegement Application Account Verification";
+const verificationSubject = "Finance Management Application Account Verification";
 
 function verificationHTML(to, password) {
-    return `<p>Your account on Finance Manegement Application has been created sucessfully. Use following details to sign in. After logging in, you are advised to change password as per your wishes to make the account more secure.<br>User_ID : ${to}<br>Password : ${password}</p>`;
+    return `<p>Your account on Finance Management Application has been created sucessfully. Use following details to sign in. After logging in, you are advised to change password in order to make your account more secure.<br>User_ID : ${to}<br>Password : ${password}</p>`;
 }
-
 
 async function sendVerificationEmail(to, password) {
     if (ENVIRONMENT == "development") {
         console.log(`User_ID : ${to} , Password : ${password}`);
-        
     }
 
     sgMail.setApiKey(API_KEYS.key);
@@ -24,8 +21,6 @@ async function sendVerificationEmail(to, password) {
     html:verificationHTML(to, password) ,
     };
     sgMail.send(msg);
-
-    
 }
 
 exports.sendVerificationEmail = sendVerificationEmail;

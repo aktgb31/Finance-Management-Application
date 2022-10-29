@@ -1,8 +1,6 @@
 const router  = require('express').Router();
 
-const { register } = require('../controllers/userController');
-const {isAuthenticatedUser, isLoginedUser} = require('../middlewares/auth');
-
+const { profile } = require('../controllers/userController');
 
 
 module.exports = router;
