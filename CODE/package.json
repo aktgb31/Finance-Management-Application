@@ -18,9 +18,7 @@
     "nodemailer": "^6.8.0",
     "sequelize": "^6.7.0"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aktgb31/Finance-Management-Application.git"

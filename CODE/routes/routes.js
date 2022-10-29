@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { register, login, loginScren, dashboard, profile } = require('../controllers/userController');
+const { register, login, loginScren, dashboard, profile, profileJSON } = require('../controllers/userController');
 const { isAuthenticatedUser, isLoginedUser } = require('../middlewares/auth');
 
 router.get('/login', isLoginedUser, loginScren);

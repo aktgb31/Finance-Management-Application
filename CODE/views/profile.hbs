@@ -97,16 +97,16 @@
                         <img src="assets/PR.png" alt="" width="70" height="70" style="border-radius:50px; display: block; margin:0 auto;">
                         <p></p>
                         <label>Name</label>
-                        <input type="text" class="form-control editField" value="Pavithra Rajan" readonly>
+                        <input type="text" class="form-control editField" id="name" value={{name}} readonly>
                         <br>
                         <p></p>
                         <label>Email ID</label>
-                        <input type="text" class="form-control editField" value="pavithra.rajan01@gmail.com" readonly>
+                        <input type="text" class="form-control editField" id="emailID" value={{emailId}} readonly>
                         <br>
                         <p></p>
                         <label>Password</label>
                         <div style="display: flex; flex-direction: row;">
-                          <input type="password" class="form-control editField" value="Tester" id="password" readonly>
+                          <input type="password" class="form-control editField pass" value={{pass}} id="password" readonly>
                           <i class="bi bi-eye-slash" id="passwordShow" style="margin-left: -25px; margin-top: 5px; cursor: pointer; z-index: 3" hidden></i>
                         </div>
                         <p></p>
@@ -125,33 +125,36 @@
       </div>
     </body>
     <script>
-        document.getElementById("editBtn").addEventListener("click", function ()
+
+      document.getElementById("editBtn").addEventListener("click", function ()
+      {
+        var x = document.getElementById("profileEdits").getElementsByClassName("editField");
+        for(i = 0; i < x.length; i+=2)
         {
-          var x = document.getElementById("profileEdits").getElementsByClassName("editField");
-          for(i = 0; i < x.length; i+=2)
-          {
-            x.item(i).readOnly = !x.item(i).readOnly;
-          }
-          var y = document.getElementById("passwordShow");
-          y.hidden = !y.hidden;
-          if(!y.hidden)
-            this.textContent = "Save Details";
-          else
-            this.textContent = "Edit Details";
-        }.bind(document.getElementById("editBtn")));
-        document.getElementById("passwordShow").addEventListener("click", function()
-        {
-          var x = document.getElementById("password");
-          if(x.getAttribute("type") == "password")
-            x.setAttribute("type", "text");
-          else
-            x.setAttribute("type", "password");
-          this.classList.toggle("bi-eye");
-        }.bind(document.getElementById("passwordShow")));
-        document.getElementById("delet").addEventListener("click", function()
-        {
-          confirm("Are you sure?");
-        });
+          x.item(i).readOnly = !x.item(i).readOnly;
+        }
+        var y = document.getElementById("passwordShow");
+        y.hidden = !y.hidden;
+        if(!y.hidden)
+          this.textContent = "Save Details";
+        else
+          this.textContent = "Edit Details";
+      }.bind(document.getElementById("editBtn")));
+
+      document.getElementById("passwordShow").addEventListener("click", function()
+      {
+        var x = document.getElementById("password");
+        if(x.getAttribute("type") == "password")
+          x.setAttribute("type", "text");
+        else
+          x.setAttribute("type", "password");
+        this.classList.toggle("bi-eye");
+      }.bind(document.getElementById("passwordShow")));
+      
+      document.getElementById("delet").addEventListener("click", function()
+      {
+        confirm("Are you sure?");
+      });
     </script>
     <script type="text/javascript" src="js/profile.js"></script>
 </html>

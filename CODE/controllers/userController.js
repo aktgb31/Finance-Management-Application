@@ -65,6 +65,6 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.profile = catchAsyncErrors(async (req, res, next) => {
-    //const user = User.findOne({ where: { userEmailId: req.session.user.emailId } });
-    res.render("profile");
+    const user = await User.findOne({ where: { emailId: req.session.user.emailId } });
+    res.render("profile", {name: user.name, emailId: user.emailId, pass: user.password});
 });
