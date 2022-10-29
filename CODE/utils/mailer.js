@@ -12,20 +12,20 @@ function verificationHTML(to, password) {
 async function sendVerificationEmail(to, password) {
     if (ENVIRONMENT == "development") {
         console.log(`User_ID : ${to} , Password : ${password}`);
-        
+        return;
     }
 
     sgMail.setApiKey(API_KEYS.key);
     const msg = {
-    to: to,
-    from: EMAIL.user,
-    subject: verificationSubject,
-    text: ' ',
-    html:verificationHTML(to, password) ,
+        to: to,
+        from: EMAIL.user,
+        subject: verificationSubject,
+        text: ' ',
+        html: verificationHTML(to, password),
     };
     sgMail.send(msg);
 
-    
+
 }
 
 exports.sendVerificationEmail = sendVerificationEmail;

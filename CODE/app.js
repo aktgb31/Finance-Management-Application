@@ -5,7 +5,7 @@ const { SESSION } = require('./config');
 const path = require('path');
 const hbs = require('hbs');
 const defaultRoutes = require('./routes/routes');
-// const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
 const app = express();
 
@@ -25,15 +25,15 @@ app.use(express.urlencoded({ extended: true }));
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Routes
-
-
-// app.use('/user',userRoutes);
+app.use('/user', userRoutes);
+app.use('/user', express.static(path.join(__dirname, 'public')));
 app.use('/expense', expenseRoutes);
+app.use('/expense', express.static(path.join(__dirname, 'public')));
 app.use('/', defaultRoutes);
-
+app.use('/', express.static(path.join(__dirname, 'public')));
 // Error Handler
 app.use(errorHandler);
 

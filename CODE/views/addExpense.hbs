@@ -4,24 +4,24 @@
 <head>
   <title>User Dashboard</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
-  <script type="text/javascript" src="../charts/fusioncharts.js"></script>
-  <script type="text/javascript" src="../charts/themes/fusioncharts.theme.zune.js?cacheBust=56"></script>
-  <script type="text/javascript" src="../charts/fusioncharts.jqueryplugin.js"></script>
+  <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="charts/fusioncharts.js"></script>
+  <script type="text/javascript" src="charts/themes/fusioncharts.theme.zune.js?cacheBust=56"></script>
+  <script type="text/javascript" src="charts/fusioncharts.jqueryplugin.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../css_dashboard/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../css_dashboard/bootstrap-theme.min.css">
-  <link rel="stylesheet" type="text/css" href="../css_dashboard/bootstrap-datetimepicker.css">
-  <link rel="stylesheet" type="text/css" href="../css_dashboard/main.css">
+  <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap-datetimepicker.css">
+  <link rel="stylesheet" type="text/css" href="css_dashboard/main.css">
 
 
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../js/moment-with-locales.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/moment-with-locales.js"></script>
 
-  <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
 
-  <script type="text/javascript" src="../js/dashboard.js"></script>
-  <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="js/dashboard.js"></script>
+  <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
 
 </head>
 
@@ -68,11 +68,9 @@
 
           <label>Spent on:</label>
           <select class="form-control">
-            <option>Food</option>
-            <option>Entertainment</option>
-            <option>Education and Accommodation</option>
-            <option>Transportation</option>
-            <option>Clothing and Shopping</option>
+            {{#each tags}}
+            <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
           </select>
 
           <label>Amount in Rs.:</label>

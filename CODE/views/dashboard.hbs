@@ -116,51 +116,53 @@
                 </div>
 
                 <div class="table-content" id="table-fill">
+                  {{#each expenses}}
                   <div class="table-row">
-                    <div class="table-data">02 September 2022</div>
-                    <div class="table-data">Education and Accommodation</div>
-                    <div class="table-data">10000</div>
-                    <div class="table-data">Paid hostel fees</div>
-                    <div class="table-data"><button type="button" data-toggle="modal" data-target="#editModal"
-                        style="margin-top: -2%;">
+                    <div class="table-data">{{this.date}}</div>
+                    <div class="table-data">{{this.tag.name}}</div>
+                    <div class="table-data">{{this.amount}}</div>
+                    <div class="table-data">{{this.remarks}}</div>
+                    <div class="table-data"><button type="button" data-toggle="modal"
+                        data-target="#editModal-{{this.id}}" style="margin-top: -2%;">
                         Edit
                       </button>
                     </div>
                   </div>
                   <!-- Modal -->
 
-                  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
-                    aria-hidden="true">
+                  <div class="modal fade" id="editModal-{{this.id}}" tabindex="-1" role="dialog"
+                    aria-labelledby="modalTitle-{{this.id}}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title" id="modalTitle">Edit expense</h4>
+                          <h4 class="modal-title" id="modalTitle-{{this.id}}">Edit expense</h4>
 
                         </div>
                         <div class="modal-body" style="margin: 0 auto;float: none;">
                           <form role="form">
                             <div class="form-group">
                               <div class="input-group" id="profileEdits">
-
-
-
                                 <label>Date</label>
-                                <input type="text" class="form-control editField" value="02 September 2022">
+                                <input type="text" class="form-control editField" value="{{this.date}}">
                                 <br>
                                 <p></p>
 
                                 <label>Type</label>
-                                <input type="text" class="form-control editField" value="Education and Accommodation">
+                                <select class="form-control" value="{{this.id}}">
+                                  {{#each tags}}
+                                  <option value="{{this.id}}">{{this.name}}</option>
+                                  {{/each}}
+                                </select>
                                 <br>
                                 <p></p>
 
                                 <label>Amount in Rs.</label>
-                                <input type="text" class="form-control editField" value="10000">
+                                <input type="text" class="form-control editField" value="{{this.amount}}">
                                 <br>
                                 <p></p>
 
                                 <label>Remarks</label>
-                                <input type="text" class="form-control editField" value="Paid hostel fees">
+                                <input type="text" class="form-control editField" value="{{this.remarks}}">
                                 <br>
                                 <p></p>
 
@@ -178,22 +180,7 @@
                     </div>
                   </div>
                   <!-- Modal -->
-
-                  <div class="table-row">
-                    <div class="table-data">04 September 2022</div>
-                    <div class="table-data">Transportation</div>
-                    <div class="table-data">400</div>
-                    <div class="table-data">Train ticket to Calicut</div>
-                    <div class="table-data"><button style="margin-top: -2%;">Edit</button></div>
-                  </div>
-
-                  <div class="table-row">
-                    <div class="table-data">07 September 2022</div>
-                    <div class="table-data">Clothing and Shopping</div>
-                    <div class="table-data">730</div>
-                    <div class="table-data">Spent at Hi-Lite mall</div>
-                    <div class="table-data"><button style="margin-top: -2%;">Edit</button></div>
-                  </div>
+                  {{/each}}
                 </div>
               </div>
             </div>

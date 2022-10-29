@@ -5,6 +5,8 @@ const { passwordGenerator } = require("../utils/passwordGenerator");
 const { sendVerificationEmail } = require('../utils/mailer');
 const ErrorHandler = require("../utils/errorHandler");
 const { hash } = require("../utils/encrypt");
+const { getExpensesByEmail } = require("./expenseController");
+const Tag = require("../models/tag");
 
 // Register a new user
 exports.register = catchAsyncErrors(async (req, res, next) => {
@@ -61,5 +63,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
 
 // User Dasboard
 exports.dashboard = catchAsyncErrors(async (req, res, next) => {
-    res.render("dashboard", { user: req.session.user });
+    const [expenses, tags] = await Promise.all([getExpensesByEmail(req.session.user.emailId), Tag.findAll({ raw: true })]);
+    console.log(expenses, tags);
+    res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags });
 });

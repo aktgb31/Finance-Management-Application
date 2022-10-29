@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const Db = require("../config/database");
-const { Expense } = require("./expense");
 
 // Tag Model
 const Tag = Db.define("tag", {
@@ -25,10 +24,5 @@ const Tag = Db.define("tag", {
         }
     }
 }, { timestamps: false });
-
-Tag.hasMany(Expense, {
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-});
 
 module.exports = Tag;

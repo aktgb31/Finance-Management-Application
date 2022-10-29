@@ -7,8 +7,8 @@ router.get('/add', isAuthenticatedUser, addExpenseScreen);
 
 router.post('/add', isAuthenticatedUser, addExpense);
 
-router.put('/:id', isAuthenticatedUser, updateExpense);
+router.put('/update/:id', isAuthenticatedUser, updateExpense);
 
-router.delete('/:id', isAuthenticatedUser, deleteExpense);
+router.delete('/delete/:id', isAuthenticatedUser, deleteExpense);
 
 module.exports = router;
