@@ -1,160 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>User Profile</title>
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-      <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap.min.css">    
-      <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap-theme.min.css">  
-      <link rel="stylesheet" type="text/css" href="css_dashboard/main.css">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/moment-with-locales.js"></script>
-    </head>
-    <body>
-      <nav class="navbar navbar-default visible-xs">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-             <button type="button" class="navbar-toggle user-info" data-toggle="collapse" data-target="#useInfo">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>   
-            </button>
+
+<head>
+  <title>User Profile</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css_dashboard/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="css_dashboard/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/moment-with-locales.js"></script>
+</head>
+
+<body>
+  {{> topHeader}}
+  <div class="container-fluid">
+    <div class="row content">
+      {{> sideBar}}
+      <br>
+      <div class="col-sm-9 col-md-9 col-lg-10" id="contemt-main">
+        <div class="row">
+          <div class="col-sm-10" id="profile" style="display: flex; flex-direction: row;">
+            <h1>Profile</h1>
           </div>
-          <div class="collapse navbar-collapse" id="useInfo">
-            <ul class="nav navbar-nav">
-              <li class="text-center">
-              <h2 class="text-uppercase">Welcome</h2>
-              <img src="assets/PR.png" alt="" width="70" height="70" style="border-radius:50px">
-              <div class="text-uppercase">Pavithra Rajan</div>
-              </li>
-            </ul>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li ><a href="profile.html">Profile</a></li>
-                <li class="active"> <a href="dashboard.html">Expense Overview</a> </li>
-                <li><a href="addexp.html">Add Expenses</a></li>             
-            </ul>
+          <div class="col-sm-2">
+            <button> Logout </button>
           </div>
         </div>
-      </nav>
-      <div class="container-fluid">
-        <div class="row content">
-          <div class="col-sm-3 col-md-3 col-lg-2 sidenav hidden-xs clearfix" style="min-height: 100vh;" id="nav">
-            <div data-spy="affix" data-offset-top="0" class="sidenav-container">
-              <div class="row">
-                <div class="col-sm-12">
-                  <p></p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-5">
-                  <img src="assets/PR.png" alt="" width="70" height="70" style="border-radius:50px">
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-7" style="margin-top:20px">
-                  <div class="text-capitalize" style="color: #b5ecec; font-size: 20px; font-weight: bold;">Welcome!</div>
-                  <div class="text" style="color: white; font-size: 15px; ">Pavithra Rajan</div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="/profile">Profile</a></li>
-                    <li> <a href="/">Expense Overview</a> </li>
-                    <li><a href="expense/add">Add Expenses</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
           </div>
-          <br>
-          <div class="col-sm-9 col-md-9 col-lg-10" id="contemt-main">
-            <div class="row">
-              <div class="col-sm-10" id="profile" style="display: flex; flex-direction: row;">
-                <h1>Profile</h1>
-              </div>
-              <div class="col-sm-2">
-                <button> Logout </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <hr>
-              </div>
-            </div>
-            <div class="row" >
-              <div class="col-sm-12" >
-                <div class="well">  
-                  <div class="wrapper" style="display: flex; justify-content: center;">
-                  <form role="form">
-                    <div class="form-group">
-                      <div class="input-group" id="profileEdits">
-                        <img src="assets/PR.png" alt="" width="70" height="70" style="border-radius:50px; display: block; margin:0 auto;">
-                        <p></p>
-                        <label>Name</label>
-                        <input type="text" class="form-control editField" id="name" value={{name}} readonly>
-                        <br>
-                        <p></p>
-                        <label>Email ID</label>
-                        <input type="text" class="form-control editField" id="emailID" value={{emailId}} readonly>
-                        <br>
-                        <p></p>
-                        <label>Password</label>
-                        <div style="display: flex; flex-direction: row;">
-                          <input type="password" class="form-control editField pass" value={{pass}} id="password" readonly>
-                          <i class="bi bi-eye-slash" id="passwordShow" style="margin-left: -25px; margin-top: 5px; cursor: pointer; z-index: 3" hidden></i>
-                        </div>
-                        <p></p>
-                        <br>
-                        <button id="editBtn" type="button" style="display: block; margin:0 auto;">Edit Details</button>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="well">
+              <div class="wrapper" style="display: flex; justify-content: center;">
+                <form role="form">
+                  <div class="form-group">
+                    <div class="input-group" id="profileEdits">
+                      <img src="assets/PR.png" alt="" width="70" height="70"
+                        style="border-radius:50px; display: block; margin:0 auto;">
+                      <p></p>
+                      <label>Name</label>
+                      <input type="text" class="form-control editField" id="name" value={{user.name}} readonly>
+                      <br>
+                      <p></p>
+                      <label>Email ID</label>
+                      <input type="text" class="form-control editField" id="emailID" value={{user.emailId}} readonly>
+                      <br>
+                      <p></p>
+                      <label>Password</label>
+                      <div style="display: flex; flex-direction: row;">
+                        <input type="password" class="form-control editField pass" value={{user.pass}} id="password"
+                          readonly>
+                        <i class="bi bi-eye-slash" id="passwordShow"
+                          style="margin-left: -25px; margin-top: 5px; cursor: pointer; z-index: 3" hidden></i>
                       </div>
+                      <p></p>
+                      <br>
+                      <button id="editBtn" type="button" style="display: block; margin:0 auto;">Edit Details</button>
                     </div>
-                  </form>
-                </div>
-              </div>
-                <button id="delet" style="display: block; margin:0 auto; background-color:	#DC3545; border: 1px solid #DC3545;"> Delete Account </button>
+                  </div>
+                </form>
               </div>
             </div>
+            <button id="delet"
+              style="display: block; margin:0 auto; background-color:	#DC3545; border: 1px solid #DC3545;"> Delete
+              Account </button>
           </div>
         </div>
       </div>
-    </body>
-    <script>
+    </div>
+  </div>
+</body>
+<script>
 
-      document.getElementById("editBtn").addEventListener("click", function ()
-      {
-        var x = document.getElementById("profileEdits").getElementsByClassName("editField");
-        for(i = 0; i < x.length; i+=2)
-        {
-          x.item(i).readOnly = !x.item(i).readOnly;
-        }
-        var y = document.getElementById("passwordShow");
-        y.hidden = !y.hidden;
-        if(!y.hidden)
-          this.textContent = "Save Details";
-        else
-          this.textContent = "Edit Details";
-      }.bind(document.getElementById("editBtn")));
+  document.getElementById("editBtn").addEventListener("click", function () {
+    var x = document.getElementById("profileEdits").getElementsByClassName("editField");
+    for (i = 0; i < x.length; i += 2) {
+      x.item(i).readOnly = !x.item(i).readOnly;
+    }
+    var y = document.getElementById("passwordShow");
+    y.hidden = !y.hidden;
+    if (!y.hidden)
+      this.textContent = "Save Details";
+    else
+      this.textContent = "Edit Details";
+  }.bind(document.getElementById("editBtn")));
 
-      document.getElementById("passwordShow").addEventListener("click", function()
-      {
-        var x = document.getElementById("password");
-        if(x.getAttribute("type") == "password")
-          x.setAttribute("type", "text");
-        else
-          x.setAttribute("type", "password");
-        this.classList.toggle("bi-eye");
-      }.bind(document.getElementById("passwordShow")));
-      
-      document.getElementById("delet").addEventListener("click", function()
-      {
-        confirm("Are you sure?");
-      });
-    </script>
-    <script type="text/javascript" src="js/profile.js"></script>
+  document.getElementById("passwordShow").addEventListener("click", function () {
+    var x = document.getElementById("password");
+    if (x.getAttribute("type") == "password")
+      x.setAttribute("type", "text");
+    else
+      x.setAttribute("type", "password");
+    this.classList.toggle("bi-eye");
+  }.bind(document.getElementById("passwordShow")));
+
+  document.getElementById("delet").addEventListener("click", function () {
+    confirm("Are you sure?");
+  });
+</script>
+<script type="text/javascript" src="js/profile.js"></script>
+
 </html>

@@ -5,7 +5,7 @@ const Tag = require("../models/tag");
 
 exports.addExpenseScreen = catchAsyncErrors(async (req, res, next) => {
     const tags = await Tag.findAll({ raw: true });
-    res.render("addExpense", { tags: tags });
+    res.render("addExpense", { user: req.session.user, tags: tags, addExpense: true });
 });
 
 exports.addExpense = catchAsyncErrors(async (req, res, next) => {

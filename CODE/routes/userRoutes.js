@@ -1,6 +1,9 @@
-const router  = require('express').Router();
+const router = require('express').Router();
 
-const { profile } = require('../controllers/userController');
+const { getProfile } = require('../controllers/userController');
+const { isAuthenticatedUser } = require('../middlewares/auth');
+
+router.get("/profile", isAuthenticatedUser, getProfile);
 
 
 module.exports = router;

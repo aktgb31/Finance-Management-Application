@@ -21,9 +21,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="/profile">Profile</a></li>
-                <li class="active"> <a href="/">Expense Overview</a> </li>
-                <li><a href="expense/add">Add Expenses</a></li>
+                <li {{#if profile}} class="active" {{/if}}><a href="/user/profile">Profile</a></li>
+                <li {{#if dashboard}} class="active" {{/if}}> <a href="/">Expense Overview</a> </li>
+                <li {{#if addExpense}} class="active" {{/if}}><a href="expense/add">Add Expenses</a></li>
             </ul>
         </div>
     </div>
