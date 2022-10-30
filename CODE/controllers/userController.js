@@ -61,12 +61,21 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
     res.redirect("/");
 });
 
+// Logout user
+exports.logout = catchAsyncErrors(async (req, res, next) => {
+    req.session.destroy();
+    res.clearCookie("connect.sid");
+    res.redirect("/login");
+});
+
 // User Dasboard
 exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const [expenses, tags] = await Promise.all([getExpensesByEmail(req.session.user.emailId), Tag.findAll({ raw: true })]);
     res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true });
 });
 
+// User Profile
 exports.getProfile = catchAsyncErrors(async (req, res, next) => {
     res.render("profile", { user: req.session.user, profile: true });
 });
+
