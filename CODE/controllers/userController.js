@@ -79,3 +79,21 @@ exports.getProfile = catchAsyncErrors(async (req, res, next) => {
     res.render("profile", { user: req.session.user, profile: true });
 });
 
+// Get forgot password screen
+exports.getForgotPassword = catchAsyncErrors(async (req, res, next) => {
+    res.render("forgotPassword", { forgotPassword: true });
+});
+
+// User forgot password 
+exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
+    const emailId = req.body.email;
+    const user = await User.findByPk(emailId);
+    if (!user) {
+        throw new ErrorHandler(400, "Invalid Email");
+    }
+    const password = passwordGenerator();
+    await user.update({ password: password });
+    await sendVerificationEmail(emailId, password);
+    res.redirect("/login");
+});
+
