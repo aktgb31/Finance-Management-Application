@@ -116,26 +116,26 @@
                 </div>
 
                 <div class="table-content" id="table-fill">
-                  {{#each expenses}}
+                  {{#each expenses as |expense|}}
                   <div class="table-row">
-                    <div class="table-data">{{this.date}}</div>
-                    <div class="table-data">{{this.tag.name}}</div>
-                    <div class="table-data">{{this.amount}}</div>
-                    <div class="table-data">{{this.remarks}}</div>
+                    <div class="table-data">{{expense.date}}</div>
+                    <div class="table-data">{{expense.tag.name}}</div>
+                    <div class="table-data">{{expense.amount}}</div>
+                    <div class="table-data">{{expense.remarks}}</div>
                     <div class="table-data"><button type="button" data-toggle="modal"
-                        data-target="#editModal-{{this.id}}" style="margin-top: -2%;">
+                        data-target="#editModal-{{expense.id}}" style="margin-top: -2%;">
                         Edit
                       </button>
                     </div>
                   </div>
                   <!-- Modal -->
 
-                  <div class="modal fade" id="editModal-{{this.id}}" tabindex="-1" role="dialog"
-                    aria-labelledby="modalTitle-{{this.id}}" aria-hidden="true">
+                  <div class="modal fade" id="editModal-{{expense.id}}" tabindex="-1" role="dialog"
+                    aria-labelledby="modalTitle-{{expense.id}}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title" id="modalTitle-{{this.id}}">Edit expense</h4>
+                          <h4 class="modal-title" id="modalTitle-{{expense.id}}">Edit expense</h4>
 
                         </div>
                         <div class="modal-body" style="margin: 0 auto;float: none;">
@@ -143,26 +143,26 @@
                             <div class="form-group">
                               <div class="input-group" id="profileEdits">
                                 <label>Date</label>
-                                <input type="text" class="form-control editField" value="{{this.date}}">
+                                <input type="text" class="form-control editField" value="{{expense.date}}">
                                 <br>
                                 <p></p>
 
                                 <label>Type</label>
-                                <select class="form-control" value="{{this.id}}">
-                                  {{#each tags}}
-                                  <option value="{{this.id}}">{{this.name}}</option>
+                                <select class="form-control" value="{{expense.id}}">
+                                  {{#each ../tags as |tag|}}
+                                  <option value="{{tag.id}}">{{tag.name}}</option>
                                   {{/each}}
                                 </select>
                                 <br>
                                 <p></p>
 
                                 <label>Amount in Rs.</label>
-                                <input type="text" class="form-control editField" value="{{this.amount}}">
+                                <input type="text" class="form-control editField" value="{{expense.amount}}">
                                 <br>
                                 <p></p>
 
                                 <label>Remarks</label>
-                                <input type="text" class="form-control editField" value="{{this.remarks}}">
+                                <input type="text" class="form-control editField" value="{{expense.remarks}}">
                                 <br>
                                 <p></p>
 
