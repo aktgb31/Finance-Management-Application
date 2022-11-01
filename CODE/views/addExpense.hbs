@@ -55,34 +55,35 @@
           </div>
 
         </div>
-
+        <form role="form" action="/expense/add" method="post">
         <div class="col-sm-6">
           <label>Date:</label>
           <div class='input-group date' id='datetimepicker6'>
 
-            <input type='text' class="form-control" value="01/06/2022" data-provide="datepicker" />
+            <input type='text' class="form-control" name="date" value="01/06/2022" data-provide="datepicker" />
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
           </div>
 
           <label>Spent on:</label>
-          <select class="form-control">
+          <select name="tagId" class="form-control">
             {{#each tags}}
             <option value="{{this.id}}">{{this.name}}</option>
             {{/each}}
           </select>
 
           <label>Amount in Rs.:</label>
-          <input type='number' class="form-control" min="1" placeholder="Amount" />
+          <input name="amount" type='number' class="form-control" min="1" placeholder="Amount" />
 
           <label for="remarksText">Remarks (if any):</label>
-          <textarea class="form-control" id="remarksText" rows="3"
+          <textarea name="remarks" class="form-control" id="remarksText" rows="3"
             placeholder="Details on where the money was spent"></textarea>
-          <button type="button"
+          <button type="submit"
             style="border-radius:15px; display: block; margin:0 auto; margin-top: 3%;">SUBMIT</button>
 
         </div>
+        </form>
         <div class="col-sm-6">
           <img src="assets/add_exp.png" width="500px" style="display: block; margin:0 auto; margin-top: -10%;" />
         </div>
