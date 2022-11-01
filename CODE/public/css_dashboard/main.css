@@ -286,5 +286,17 @@
               display:flex;
               justify-content: flex-end;
             }
+
+            .profileImage {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+              background: #b5ecec;
+              font-size: 35px;
+              color: #004369;
+              text-align: center;
+              line-height: 70px;
+              margin: 10px 0;
+            }
              
             
