@@ -15,7 +15,7 @@ exports.addExpense = catchAsyncErrors(async (req, res, next) => {
     validateDate(date);
     validateRemarks(remarks);
     validateTagId(tagId);
-    const expense = await Expense.create({ amount, date, remarks, tagId,emailId });
+    const expense = await Expense.create({ amount, date, remarks, tagId,userEmailId:emailId });
     res.redirect("/expense/add")
 });
 
