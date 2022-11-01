@@ -39,35 +39,35 @@
           <div class="col-sm-12">
             <div class="well">
               <div class="wrapper" style="display: flex; justify-content: center;">
-                <form role="form">
+                <form role="form" id="userprofile" action="/user/profile" method="post">
                   <div class="form-group">
                     <div class="input-group" id="profileEdits">
                       <div class="profileImage" style="display: block; margin:0 auto;"></div>
                       <p></p>
                       <label>Name</label>
-                      <input type="text" class="form-control editField" id="name" value="{{user.name}}" readonly>
+                      <input type="text" name="name" class="form-control editField" id="name" value="{{user.name}}">
                       <br>
                       <p></p>
                       <label>Email ID</label>
-                      <input type="text" class="form-control editField" id="emailID" value="{{user.emailId}}" readonly>
+                      <input name="emailId" type="text" class="form-control editField" id="emailID" value="{{user.emailId}}" readonly>
                       <br>
                       <p></p>
                       <label>Password</label>
                       <div style="display: flex; flex-direction: row;">
-                        <input type="password" class="form-control editField pass" value="{{user.pass}}" id="password"
-                          readonly>
+                        <input type="password" name="password" class="form-control editField pass" value="{{user.pass}}" id="password"
+                          >
                         <i class="bi bi-eye-slash" id="passwordShow"
                           style="margin-left: -25px; margin-top: 5px; cursor: pointer; z-index: 3" hidden></i>
                       </div>
                       <p></p>
                       <br>
-                      <button id="editBtn" type="button" style="display: block; margin:0 auto;">Edit Details</button>
+                      <button id="editBtn" type="submit" style="display: block; margin:0 auto;">Edit Details</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
-            <button id="delet"
+            <button id="delet" type="submit" form="userprofile" formaction="/user/delete" formmethod="post"
               style="display: block; margin:0 auto; background-color:	#DC3545; border: 1px solid #DC3545;"> Delete
               Account </button>
           </div>
@@ -95,19 +95,6 @@
       for(i = 0; i < images.length; i += 1)
         images.item(i).textContent = name.charAt(0);
   });
-
-  document.getElementById("editBtn").addEventListener("click", function () {
-    var x = document.getElementById("profileEdits").getElementsByClassName("editField");
-    for (i = 0; i < x.length; i += 2) {
-      x.item(i).readOnly = !x.item(i).readOnly;
-    }
-    var y = document.getElementById("passwordShow");
-    y.hidden = !y.hidden;
-    if (!y.hidden)
-      this.textContent = "Save Details";
-    else
-      this.textContent = "Edit Details";
-  }.bind(document.getElementById("editBtn")));
 
   document.getElementById("passwordShow").addEventListener("click", function () {
     var x = document.getElementById("password");

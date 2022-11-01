@@ -79,6 +79,27 @@ exports.getProfile = catchAsyncErrors(async (req, res, next) => {
     res.render("profile", { user: req.session.user, profile: true });
 });
 
+//update user profile
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+    const { name, emailId, password } = req.body;
+    validateName(name);
+    const profile = await User.findByPk(emailId);
+    if(password===""){
+        await profile.update({ name: name }); 
+    }
+    else{
+        await profile.update({ password:password, name: name });  
+    }
+    res.redirect("/user/profile")
+}); 
+
+//delete user profile
+exports.deleteProfile = catchAsyncErrors(async (req,res,next) =>{
+    const profile = await User.findByPk(req.session.user.emailId);
+    profile.destroy();
+    res.redirect("/");
+});
+
 // Get forgot password screen
 exports.getForgotPassword = catchAsyncErrors(async (req, res, next) => {
     res.render("forgotPassword", { forgotPassword: true });
