@@ -94,4 +94,24 @@
 
 </body>
 
+<script>
+  var name, val;
+
+  $(document).ready(function() {
+
+    name = $('#nameOfUser').text().split(" ");
+    var images = document.getElementsByClassName("profileImage");
+
+    if(!(typeof name === 'string' || name instanceof String))
+    {
+      val = name[0].charAt(0) + name[1].charAt(0);
+      for(i = 0; i < images.length; i += 1)
+        images[i].textContent = val;
+    }
+    else
+      for(i = 0; i < images.length; i += 1)
+        images.item(i).textContent = name.charAt(0);
+  });
+</script>
+
 </html>
