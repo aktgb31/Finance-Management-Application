@@ -30,6 +30,7 @@ exports.getExpensesByEmail = async (emailId) => {
 exports.deleteExpense = catchAsyncErrors(async (req, res, next) => {
     const expense = await Expense.findByPk(req.params.id);
     await expense.destroy();
+    res.redirect("/");
 });
 
 exports.updateExpense = catchAsyncErrors(async (req, res, next) => {
@@ -40,4 +41,6 @@ exports.updateExpense = catchAsyncErrors(async (req, res, next) => {
     validateTagId(tagId);
     const expense = await Expense.findByPk(req.params.id);
     await expense.update({ amount, date, remarks, tagId });
+
+    res.redirect("/");
 });

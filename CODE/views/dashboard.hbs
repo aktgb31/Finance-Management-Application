@@ -139,16 +139,16 @@
 
                         </div>
                         <div class="modal-body" style="margin: 0 auto;float: none;">
-                          <form role="form">
+                          <form role="form" id="form-{{expense.id}}">
                             <div class="form-group">
                               <div class="input-group" id="profileEdits">
                                 <label>Date</label>
-                                <input type="text" class="form-control editField" value="{{expense.date}}">
+                                <input type="text" name="date" class="form-control editField" value="{{expense.date}}">
                                 <br>
                                 <p></p>
 
                                 <label>Type</label>
-                                <select class="form-control" value="{{expense.id}}">
+                                <select name="tagId" class="form-control" value="{{expense.id}}">
                                   {{#each ../tags as |tag|}}
                                   <option value="{{tag.id}}">{{tag.name}}</option>
                                   {{/each}}
@@ -157,24 +157,25 @@
                                 <p></p>
 
                                 <label>Amount in Rs.</label>
-                                <input type="text" class="form-control editField" value="{{expense.amount}}">
+                                <input name="amount" type="text" class="form-control editField"
+                                  value="{{expense.amount}}">
                                 <br>
                                 <p></p>
 
                                 <label>Remarks</label>
-                                <input type="text" class="form-control editField" value="{{expense.remarks}}">
+                                <input name="remarks" type="text" class="form-control editField"
+                                  value="{{expense.remarks}}">
                                 <br>
                                 <p></p>
-
                               </div>
-
                             </div>
-
                           </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" id="delet" data-dismiss="modal">Delete</button>
-                          <button type="button" id="editBtn" data-dismiss="modal">Save changes</button>
+                          <button form="form-{{expense.id}}" formaction="/expense/delete/{{expense.id}}"
+                            formmethod="post" type="submit" id="delet">Delete</button>
+                          <button form="form-{{expense.id}}" formaction="/expense/update/{{expense.id}}"
+                            formmethod="post" type="submit" id="editBtn">Save changes</button>
                         </div>
                       </div>
                     </div>
