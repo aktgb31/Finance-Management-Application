@@ -79,6 +79,31 @@ exports.getProfile = catchAsyncErrors(async (req, res, next) => {
     res.render("profile", { user: req.session.user, profile: true });
 });
 
+//update user profile
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+
+    const { name, emailId, password } = req.body;
+    validateName(name);
+    const profile = await User.findByPk(emailId);
+    if(password===""){
+        await profile.update({ name: name }); 
+    }
+    else{
+        await profile.update({ password:password, name: name });  
+    }
+    req.session.user = { name: name, emailId: emailId };
+    res.redirect("/user/profile")
+}); 
+
+//delete user profile
+exports.deleteProfile = catchAsyncErrors(async (req,res,next) =>{
+    const profile = await User.findByPk(req.session.user.emailId);
+    profile.destroy();
+    req.session.destroy();
+    res.clearCookie("connect.sid");
+    res.redirect("/login");
+});
+
 // Get forgot password screen
 exports.getForgotPassword = catchAsyncErrors(async (req, res, next) => {
     res.render("forgotPassword", { forgotPassword: true });
@@ -95,16 +120,4 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     await user.update({ password: password });
     await sendVerificationEmail(emailId, password);
     res.redirect("/login");
-});
-
-exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
-
-    const {name, password} = req.body;
-    validateName(name);
-    console.log(name);
-    console.log(password);
-    const user = await User.findByPk(req.session.user.emailId);
-    await user.update({ password, name });
-
-    res.redirect("/user/profile");
 });
