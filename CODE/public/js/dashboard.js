@@ -1,43 +1,55 @@
 $(document).ready(function () {
   console.log(expenses);
   console.log(tags);
-  var expense_chart_data = [{
-    "label": "Food",
-    "color": "#064E40",
-    "value": "4100"
-  }, {
-    "label": "Entertainment",
-    "color": "#0DAD8D",
-    "value": "1500"
-  },
-  {
-    "label": "Education and Accommodation",
-    "color": "#1164B4",
-    "value": "17600"
-  },
-  {
-    "label": "Transportation",
-    "color": "#30BFBF",
-    "value": "800"
-  },
-  {
-    "label": "Clothing and Shopping",
-    "color": "#0C98BA",
-    "value": "1900"
-  }];
+  var color_dict = {"Food" : "#064E40", "Transport" : "#0DAD8D", "Entertainment" : "#1164B4", "Salary" : "#30BFBF", "Investment" : "#0C98BA" , "Other": "000000"};
+  //console.log(Object.values(color_dict)[0]);
+  //console.log(tags[expenses[0]["tag"]["id"]-1]["name"])
+
+  // creating a sum dictionary that contains the total expenditure for each tag
+  var sum_dict = {};
+  var count = Object.keys(expenses).length;
+  var tags_count = 6;
+
+  for (let i = 0; i < tags_count; i++) {
+    sum_temp = 0;
+    for (let j = 0; j < count; j++){
+      if (Object.keys(color_dict)[i] == tags[expenses[j]["tag"]["id"]-1]["name"]){
+        sum_temp = sum_temp + expenses[j]["amount"];
+      }
+      
+    }
+    sum_dict[Object.keys(color_dict)[i]] = sum_temp;
+  }
+  console.log(sum_dict);
+
+  count = Object.keys(sum_dict).length;
+  console.log(count);
+  var expense_chart_data = [];
+  console.log(expense_chart_data)
+
+  
+  for (let i = 0; i < count; i++) {
+    expense_chart_data.push({
+      "label" : Object.keys(color_dict)[i],
+      "color": Object.values(color_dict)[i],
+      "value": Object.values(sum_dict)[i],
+    })
+    
+  }
+  console.log(expense_chart_data)
 
 
   $("#expense-chart-container").insertFusionCharts({
     type: 'pie2d',
     id: 'chart7',
     width: '100%',
-    height: '300',
+    height: '350',
     dataFormat: 'json',
     dataSource: {
       "chart": {
         "chartLeftMargin": "0",
         "chartRightMargin": "0",
-        "chartTopMargin": "0",
+        "chartTopMargin": "15",
         "chartBottomMargin": "0",
         "startingAngle": "90",
         "showValues": "1",
