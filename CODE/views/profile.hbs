@@ -106,7 +106,26 @@
     if (!y.hidden)
       this.textContent = "Save Details";
     else
+    {
       this.textContent = "Edit Details";
+
+      var nme = document.createElement('input');
+      nme.setAttribute('value', document.getElementById('name').getAttribute('value'));
+      nme.setAttribute('name', 'name');
+
+      var pass = document.createElement('input');
+      pass.setAttribute('value', document.getElementById('password').getAttribute('value'));
+      pass.setAttribute('name', 'password');
+
+      var form = document.createElement('form');
+      form.setAttribute('method', 'post');
+      form.setAttribute('action', '/user/profile');
+      form.appendChild(nme);
+      form.appendChild(pass);
+      form.style.display = 'hidden';
+      document.body.appendChild(form);
+      form.submit();
+    }
   }.bind(document.getElementById("editBtn")));
 
   document.getElementById("passwordShow").addEventListener("click", function () {

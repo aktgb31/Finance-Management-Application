@@ -97,3 +97,14 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     res.redirect("/login");
 });
 
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+
+    const {name, password} = req.body;
+    validateName(name);
+    console.log(name);
+    console.log(password);
+    const user = await User.findByPk(req.session.user.emailId);
+    await user.update({ password, name });
+
+    res.redirect("/user/profile");
+});
