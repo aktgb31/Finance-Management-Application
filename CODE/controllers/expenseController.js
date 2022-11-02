@@ -10,12 +10,14 @@ exports.addExpenseScreen = catchAsyncErrors(async (req, res, next) => {
 
 exports.addExpense = catchAsyncErrors(async (req, res, next) => {
     const { amount, date, remarks, tagId } = req.body;
+    const [dd,mm,yyyy] = date.split('/');
+    const iDate = mm+"/"+dd+"/"+yyyy;
     const emailId= req.session.user.emailId;
     validateAmount(amount);
     validateDate(date);
     validateRemarks(remarks);
     validateTagId(tagId);
-    const expense = await Expense.create({ amount, date, remarks, tagId,userEmailId:emailId });
+    const expense = await Expense.create({ amount, date:iDate, remarks, tagId,userEmailId:emailId });
     res.redirect("/expense/add")
 });
 
