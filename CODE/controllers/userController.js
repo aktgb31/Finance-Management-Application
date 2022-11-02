@@ -5,7 +5,7 @@ const { passwordGenerator } = require("../utils/passwordGenerator");
 const { sendVerificationEmail } = require('../utils/mailer');
 const ErrorHandler = require("../utils/errorHandler");
 const { hash } = require("../utils/encrypt");
-const { getExpensesByEmail } = require("./expenseController");
+const { getExpensesByEmail,getExpensesByTagEmail } = require("./expenseController");
 const Tag = require("../models/tag");
 
 // Register a new user
@@ -73,6 +73,14 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const [expenses, tags] = await Promise.all([getExpensesByEmail(req.session.user.emailId), Tag.findAll({ raw: true })]);
     res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true });
 });
+
+
+exports.filteredDashboard = catchAsyncErrors(async (req, res, next) => {
+    const {tag} = req.body;
+    const [expenses,tags] = await Promise.all([getExpensesByTagEmail(req.session.user.emailId,tag),Tag.findAll({raw:true})]);
+    res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true });
+});
+
 
 // User Profile
 exports.getProfile = catchAsyncErrors(async (req, res, next) => {

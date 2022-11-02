@@ -47,7 +47,7 @@
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
             <div class="row">
               <div class='col-sm-12 form-inline datetimepickerwrapper'>
-                <div class="form-group">
+                {{!-- <div class="form-group">
                   <label>From</label>
                   <div class='input-group date' id='datetimepicker6'>
 
@@ -57,9 +57,23 @@
                     </span>
 
                   </div>
-                </div>
-
-                <div class="form-group">
+                </div> --}}
+                <form action="/" method="post">
+                  <!-- drop down -->
+                  <div class="form-group">
+                    <label for="sel1">Select filter</label>
+                    <select name="tag" class="form-control" id="sel1">
+                      <option>Food</option>
+                      <option>Transport</option>
+                      <option>Entertainment</option>
+                      <option>Salary</option>
+                      <option>Investment</option>
+                      <option>Others</option>
+                    </select>
+                  <dropdown></dropdown>
+                  <button type="submit">Filter</button>
+                </form>
+                {{!-- <div class="form-group">
                   <label>To</label>
                   <div class='input-group date' id='datetimepicker7'>
 
@@ -68,7 +82,7 @@
                       <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                   </div>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
