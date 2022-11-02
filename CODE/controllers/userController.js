@@ -97,7 +97,9 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 exports.deleteProfile = catchAsyncErrors(async (req,res,next) =>{
     const profile = await User.findByPk(req.session.user.emailId);
     profile.destroy();
-    res.redirect("/");
+    req.session.destroy();
+    res.clearCookie("connect.sid");
+    res.redirect("/login");
 });
 
 // Get forgot password screen
