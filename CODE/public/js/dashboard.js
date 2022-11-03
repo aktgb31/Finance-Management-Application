@@ -7,6 +7,14 @@ $(document).ready(function () {
   var sum_dict = {};
   var count = Object.keys(expenses).length;
   var tags_count = 6;
+  if(count == 0)
+  {
+    $("#chart").hide();
+    $('#bar').hide();
+    $('#table').hide();
+  }
+  else
+    $('#nodata').hide();
 
   for (let i = 0; i < tags_count; i++) {
     sum_temp = 0;
@@ -31,7 +39,6 @@ $(document).ready(function () {
     })
     
   }
-
 
   $("#expense-chart-container").insertFusionCharts({
     type: 'pie2d',
@@ -122,7 +129,6 @@ $(document).ready(function () {
     });
 
   });
-
 
   $("#expense-bar-container").insertFusionCharts({
     type: 'column2d',
