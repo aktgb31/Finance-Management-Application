@@ -23,6 +23,7 @@
 </head>
 
 <body>
+  {{> message}}
   {{> topHeader}}
   <div class="container-fluid">
     <div class="row content">
@@ -58,7 +59,7 @@
                     <select name="tag" class="form-control" id="sel1">
                       <option value="All">All</option>
                       {{#each tags}}
-                        <option value="{{this.id}}">{{this.name}}</option>
+                      <option value="{{this.id}}">{{this.name}}</option>
                       {{/each}}
                     </select>
                     <dropdown></dropdown>
@@ -98,14 +99,14 @@
 
         <div class="row" id="bar">
           <div class="col-sm-12">
-            <div class="well">         
+            <div class="well">
               <p><span id="expense-bar-container">Your chart will render here</span></p>
             </div>
           </div>
         </div>
         {{/if}}
 
-        <div class="row" id ="nodata">
+        <div class="row" id="nodata">
           <div class="col-sm-12">
             <div class="well">
               <h2 style="text-align: center;">No data to show</h2>
@@ -160,12 +161,12 @@
                               <div class="input-group" id="profileEdits">
                                 <label>Date</label>
                                 <div class='input-group date' id='datetimepicker6'>
-                                  <input type='text' class="form-control" value="{{expense.date}}" ></input>
+                                  <input type='text' class="form-control" value="{{expense.date}}"></input>
                                   <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                   </span>
                                 </div>
-                                
+
                                 <p></p>
 
                                 <label>Type</label>
@@ -224,9 +225,9 @@
     var images = document.getElementsByClassName("profileImage");
 
     if (!(typeof userName === 'string' && userName instanceof String)) {
-      if(userName.length>1){
+      if (userName.length > 1) {
         val = userName[0].charAt(0) + userName[1].charAt(0);
-      }else{
+      } else {
         val = userName[0].charAt(0);
       }
       for (i = 0; i < images.length; i += 1)

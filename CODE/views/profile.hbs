@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  {{> message}}
   {{> topHeader}}
   <div class="container-fluid">
     <div class="row content">
@@ -49,13 +50,14 @@
                       <br>
                       <p></p>
                       <label>Email ID</label>
-                      <input name="emailId" type="text" class="form-control editField" id="emailID" value="{{user.emailId}}" readonly>
+                      <input name="emailId" type="text" class="form-control editField" id="emailID"
+                        value="{{user.emailId}}" readonly>
                       <br>
                       <p></p>
                       <label>Password</label>
                       <div style="display: flex; flex-direction: row;">
-                        <input type="password" name="password" class="form-control editField pass" value="{{user.pass}}" id="password"
-                          >
+                        <input type="password" name="password" class="form-control editField pass" value="{{user.pass}}"
+                          id="password">
                         <i class="bi bi-eye-slash" id="passwordShow"
                           style="margin-left: -25px; margin-top: 5px; cursor: pointer; z-index: 3"></i>
                       </div>
@@ -79,25 +81,24 @@
 <script>
 
 
-  $(document).ready(function() {
+  $(document).ready(function () {
 
     var userName, val;
-    
+
     userName = $('#nameOfUser').text().split(" ");
     var images = document.getElementsByClassName("profileImage");
 
-    if(!(typeof userName === 'string' && userName instanceof String))
-    {
-      if(userName.length>1){
+    if (!(typeof userName === 'string' && userName instanceof String)) {
+      if (userName.length > 1) {
         val = userName[0].charAt(0) + userName[1].charAt(0);
-      }else{
+      } else {
         val = userName[0].charAt(0);
       }
-      for(i = 0; i < images.length; i += 1)
+      for (i = 0; i < images.length; i += 1)
         images[i].textContent = val;
     }
     else
-      for(i = 0; i < images.length; i += 1)
+      for (i = 0; i < images.length; i += 1)
         images.item(i).textContent = userName.charAt(0);
   });
 

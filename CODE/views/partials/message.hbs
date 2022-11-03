@@ -1,0 +1,6 @@
+{{!-- Div with a cross button to show success/error message --}}
+{{#if message}}
+<div class="alert {{#if message.success}}alert-success{{/if}}{{#if message.error}}alert-danger{{/if}}" role="alert">
+    {{message.text}}
+</div>
+{{/if}}
