@@ -77,6 +77,9 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
 
 exports.filteredDashboard = catchAsyncErrors(async (req, res, next) => {
     const {tag} = req.body;
+    if(tag=="All"){
+        res.redirect("/");
+    }
     const [expenses,tags] = await Promise.all([getExpensesByTagEmail(req.session.user.emailId,tag),Tag.findAll({raw:true})]);
     res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true });
 });
