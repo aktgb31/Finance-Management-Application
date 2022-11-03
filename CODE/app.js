@@ -7,6 +7,7 @@ const hbs = require('hbs');
 const defaultRoutes = require('./routes/otherRoutes');
 const userRoutes = require('./routes/userRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
+const { json, equals } = require('./utils/hbsHelpers');
 const app = express();
 
 app.use(
@@ -24,9 +25,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 // Hbs register json helper
-hbs.registerHelper('json', function (context) {
-    return JSON.stringify(context);
-});
+hbs.registerHelper('json', json);
+hbs.registerHelper('equals', equals)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 

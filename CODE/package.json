@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
-    "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "express-session": "^1.17.3",
@@ -18,7 +17,6 @@
     "mysql2": "^2.3.2",
     "sequelize": "^6.7.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aktgb31/Finance-Management-Application.git"

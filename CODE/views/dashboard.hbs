@@ -155,9 +155,10 @@
                                 <p></p>
 
                                 <label>Type</label>
-                                <select name="tagId" class="form-control" value="{{expense.id}}">
+                                <select name="tagId" class="form-control">
                                   {{#each ../tags as |tag|}}
-                                  <option value="{{tag.id}}">{{tag.name}}</option>
+                                  <option value="{{tag.id}}" {{#equals expense.tagId tag.id}} selected {{/equals}}>
+                                    {{tag.name}}</option>
                                   {{/each}}
                                 </select>
                                 <br>
