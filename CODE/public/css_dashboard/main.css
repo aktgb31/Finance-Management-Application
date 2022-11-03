@@ -228,14 +228,17 @@
              .table {
                width: 100%;
                border: 1px solid #02aab0;
+               table-layout: fixed;
             }
              .table-header {
                display: flex;
+               overflow: scroll;
                width: 100%;
                background: #02aab0;
                padding: 18px 0;
             }
              .table-row {
+              overflow: scroll;
                display: flex;
                width: 100%;
                padding: 18px 0;

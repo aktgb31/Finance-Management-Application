@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  console.log(expenses);
-  console.log(tags);
   var color_dict = {"Food" : "#064E40", "Transport" : "#0DAD8D", "Entertainment" : "#1164B4", "Salary" : "#30BFBF", "Investment" : "#0C98BA" , "Other": "000000"};
   //console.log(Object.values(color_dict)[0]);
   //console.log(tags[expenses[0]["tag"]["id"]-1]["name"])
@@ -20,12 +18,9 @@ $(document).ready(function () {
     }
     sum_dict[Object.keys(color_dict)[i]] = sum_temp;
   }
-  console.log(sum_dict);
 
   count = Object.keys(sum_dict).length;
-  console.log(count);
   var expense_chart_data = [];
-  console.log(expense_chart_data)
 
   
   for (let i = 0; i < count; i++) {
@@ -36,7 +31,6 @@ $(document).ready(function () {
     })
     
   }
-  console.log(expense_chart_data)
 
 
   $("#expense-chart-container").insertFusionCharts({
@@ -219,6 +213,12 @@ $(document).ready(function () {
       format: 'DD/MM/YYYY'
     });
 
+    $('#datetimepicker8').datetimepicker({
+      format: 'DD/MM/YYYY'
+    });
+
+    //$('#datetimepicker8').data("DateTimePicker").date(expense.date);
+
     $("#datetimepicker6 input").click(function () {
       $(".input-group-addon").click();
     });
@@ -354,3 +354,5 @@ $(document).ready(function () {
 
   });
 });
+
+
