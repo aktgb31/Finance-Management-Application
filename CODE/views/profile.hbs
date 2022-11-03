@@ -45,7 +45,7 @@
                       <div class="profileImage" style="display: block; margin:0 auto;"></div>
                       <p></p>
                       <label>Name</label>
-                      <input type="text" name="name" class="form-control editField" id="name" value="{{user.name}}">
+                      <input type="text" name="name" class="form-control editField" id="name" value="{{user.name}}" readonly>
                       <br>
                       <p></p>
                       <label>Email ID</label>
@@ -54,14 +54,15 @@
                       <p></p>
                       <label>Password</label>
                       <div style="display: flex; flex-direction: row;">
-                        <input type="password" name="password" class="form-control editField pass" value="{{user.pass}}" id="password"
-                          >
+                        <input type="password" name="password" class="form-control editField pass" value="{{user.pass}}" id="password" readonly>
                         <i class="bi bi-eye-slash" id="passwordShow"
                           style="margin-left: -25px; margin-top: 5px; cursor: pointer; z-index: 3"></i>
                       </div>
                       <p></p>
                       <br>
-                      <button id="editBtn" type="submit" style="display: block; margin:0 auto;">Edit Details</button>
+                      <button id="saveBtn" type="submit" style="display: none; margin:0 auto;" hidden>Save Details</button>
+                      <button id="editBtn" type="button" style="display: block; margin:0 auto;">Edit Details</button>
+                      
                     </div>
                   </div>
                 </form>
@@ -100,6 +101,28 @@
       for(i = 0; i < images.length; i += 1)
         images.item(i).textContent = userName.charAt(0);
   });
+  document.getElementById("editBtn").addEventListener("click", function () {
+    var x = document.getElementById("profileEdits").getElementsByClassName("editField");
+    for (i = 0; i < x.length; i += 2) {
+      x.item(i).readOnly = !x.item(i).readOnly;
+    }
+    this.hidden = true;
+    document.getElementById("saveBtn").hidden = false;
+    document.getElementById("saveBtn").style.display = "block";
+    this.style.display = "none";
+ 
+  }.bind(document.getElementById("editBtn")));
+
+  document.getElementById("saveBtn").addEventListener("click", function () {
+    var x = document.getElementById("profileEdits").getElementsByClassName("editField");
+    for (i = 0; i < x.length; i += 2) {
+      x.item(i).readOnly = !x.item(i).readOnly;
+    }
+    this.hidden = true;
+    document.getElementById("editBtn").hidden = false;
+    document.getElementById("editBtn").style.display = "block";
+    this.style.display = "none";
+  }.bind(document.getElementById("saveBtn")));
 
   document.getElementById("passwordShow").addEventListener("click", function () {
     var x = document.getElementById("password");
