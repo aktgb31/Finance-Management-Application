@@ -56,13 +56,10 @@
                   <div class="form-group">
                     <label for="sel1">Select filter</label>
                     <select name="tag" class="form-control" id="sel1">
-                      <option>All</option>
-                      <option>Food</option>
-                      <option>Transport</option>
-                      <option>Entertainment</option>
-                      <option>Salary</option>
-                      <option>Investment</option>
-                      <option>Others</option>
+                      <option value="All">All</option>
+                      {{#each tags}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                      {{/each}}
                     </select>
                     <dropdown></dropdown>
                     <button type="submit">Filter</button>
@@ -87,7 +84,9 @@
             <hr>
           </div>
         </div>
-
+        {{#if filter}}
+        <div></div>
+        {{else}}
         <div class="row" id="chart">
           <div class="col-sm-12">
             <div class="well">
@@ -99,11 +98,12 @@
 
         <div class="row" id="bar">
           <div class="col-sm-12">
-            <div class="well">
+            <div class="well">         
               <p><span id="expense-bar-container">Your chart will render here</span></p>
             </div>
           </div>
         </div>
+        {{/if}}
 
         <div class="row" id ="nodata">
           <div class="col-sm-12">

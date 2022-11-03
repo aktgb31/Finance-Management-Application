@@ -16,7 +16,7 @@
     },
     "4": {
         "id": 4,
-        "name": "Salary",
+        "name": "Tuition",
         "multiplier": 1
     },
     "5": {
@@ -26,7 +26,22 @@
     },
     "6": {
         "id": 6,
-        "name": "Other",
+        "name": "Hostel Fees",
+        "multiplier": 1
+    },
+    "7": {
+        "id": 7,
+        "name": "Books",
+        "multiplier": 1
+    },
+    "8": {
+        "id": 8,
+        "name": "Clothing",
+        "multiplier": 1
+    },
+    "9": {
+        "id":9,
+        "name": "Miscellaneous",
         "multiplier": 1
     }
 }

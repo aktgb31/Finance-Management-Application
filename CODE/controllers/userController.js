@@ -71,7 +71,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 // User Dasboard
 exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const [expenses, tags] = await Promise.all([getExpensesByEmail(req.session.user.emailId), Tag.findAll({ raw: true })]);
-    res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true });
+    res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true,filter:false });
 });
 
 
@@ -81,7 +81,7 @@ exports.filteredDashboard = catchAsyncErrors(async (req, res, next) => {
         res.redirect("/");
     }
     const [expenses,tags] = await Promise.all([getExpensesByTagEmail(req.session.user.emailId,tag),Tag.findAll({raw:true})]);
-    res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true });
+    res.render("dashboard", { user: req.session.user, expenses: expenses, tags: tags, dashboard: true,filter:true});
 });
 
 

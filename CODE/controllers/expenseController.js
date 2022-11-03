@@ -31,9 +31,7 @@ exports.getExpensesByEmail = async (emailId) => {
     return expenses;
 };
 exports.getExpensesByTagEmail = async (emailId,tag) => { 
-    const tagDict = {"Food":1,"Transport":2,"Entertainment":3,"Salary":4,"Investment":5,"Others":6};
-    const tagid = tagDict[tag];
-    const expenses = (await Expense.findAll({ where: { userEmailId: emailId,tagId:tagid }, order: [['date', 'DESC']], include: Tag, nest: true, raw: true }));
+    const expenses = (await Expense.findAll({ where: { userEmailId: emailId,tagId:tag }, order: [['date', 'DESC']], include: Tag, nest: true, raw: true }));
     return expenses;
 };
 
