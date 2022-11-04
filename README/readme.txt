@@ -56,4 +56,6 @@ Backing up the database
             Command: `npm run backup`
     3. The backup file is generated in `CODE/backups/` directory.
 
+The backup of the database tables can be found in `README/sql_dump.txt`.
+
 Note: The application is developed and tested on Ubuntu 20.04.1 LTS. It is not tested on other operating systems. Some changes might be required to run the application on other operating systems.
