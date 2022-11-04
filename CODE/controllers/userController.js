@@ -107,6 +107,9 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     if (password === "") {
         await profile.update({ name: name });
     }
+    else if (password.length < 6) {
+        throw new ErrorHandler(400, "The password is too short. It must be at least 6 characters long.");
+    }
     else {
         await profile.update({ password: password, name: name });
     }
