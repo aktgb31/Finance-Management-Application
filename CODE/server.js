@@ -1,6 +1,5 @@
 const Db = require("./config/database");
 const { PORT, ENVIRONMENT } = require("./config");
-const { emailService } = require("./utils/mailer");
 const syncTags = require("./utils/syncTags");
 const app = require("./app");
 
@@ -23,17 +22,6 @@ Db.authenticate().then(async () => {
     console.log("Database Error", err);
     process.exit(1);
 });
-
-// Start email service
-if (ENVIRONMENT != "development")
-    emailService
-        .verify()
-        .then((success) => console.log("Email Service Started Successfully"))
-        .catch((err) => {
-            console.log("Failed to Start Email Service. Error:", err.message);
-            process.exit(1);
-        });
-
 
 const server = app.listen(PORT, (err) => {
     if (err) {

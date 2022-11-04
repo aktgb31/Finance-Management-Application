@@ -24,7 +24,6 @@ Create a new .env file with the following variables
 - **ENCRYPTION_KEY** Key to encrypt messages
 - **ENCRYPTION_SALT** Key to salt messages
 - **SESSION_SECRET** Key to encrypt sessions
-- **GMAIL_ID** Gmail id to send mails to users
-- **GMAIL_PASSWORD** Gmail password
+- **MAIL_API_KEY** Twilio api key
 
 To start the Server, run `npm start` and the server will start on http://localhost:PORT
