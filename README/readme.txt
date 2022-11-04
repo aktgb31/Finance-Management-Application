@@ -49,3 +49,11 @@ Other details
 - In `production` mode, email-service is enabled, there is almost no logging enabled and the logs are generated in `logs/`.
 - `start.js` is the entry point of the application.
 - The homepage is accessible at `http://localhost:3000` if the server is started on localhost and port 3000.
+
+Backing up the database
+    1. Navigate to the `CODE` directory.
+    2. Run the following command to backup the database.
+            Command: `npm run backup`
+    3. The backup file is generated in `CODE/backups/` directory.
+
+Note: The application is developed and tested on Ubuntu 20.04.1 LTS. It is not tested on other operating systems. Some changes might be required to run the application on other operating systems.

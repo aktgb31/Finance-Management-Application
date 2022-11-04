@@ -232,13 +232,13 @@
             }
              .table-header {
                display: flex;
-               overflow: scroll;
+               overflow: hidden;
                width: 100%;
                background: #02aab0;
                padding: 18px 0;
             }
              .table-row {
-              overflow: scroll;
+              overflow: hidden;
                display: flex;
                width: 100%;
                padding: 18px 0;
