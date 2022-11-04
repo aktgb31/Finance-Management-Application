@@ -29,7 +29,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
     });
 
     try {
-        await sendVerificationEmail(email, password);
+        await sendVerificationEmail(email, password, "register");
     } catch (err) {
         userInserted.destroy(); // No waiting for destruction
         throw err;
@@ -145,7 +145,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     }
     const password = passwordGenerator();
     await user.update({ password: password });
-    await sendVerificationEmail(emailId, password);
+    await sendVerificationEmail(emailId, password, "forgotPassword");
     req.session.message = { success: true, text: "Password Reset Successful. Your password is sent to your email id." };
     res.redirect("/login");
 });
