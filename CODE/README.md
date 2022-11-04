@@ -9,6 +9,14 @@ A web application to keep track of personal expenses to promote financial planni
 1. Install latest version of Nodejs
 2. Run `npm install` to download and install the dependencies required
 
+### Get the twilio mail bot credentials
+
+1. Go to https://signup.sendgrid.com/ and create an account.
+2. Go to ->Settings->API Keys->Create API Key.
+3. Go to ->Guide->Add Sender identity.
+4. Set the value of the MAIL_API_KEY environment variable to be the API key created in step 2. 
+
+
 ### Setting up the environment variables
 
 Create a new .env file with the following variables

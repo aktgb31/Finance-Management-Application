@@ -17,6 +17,11 @@ Running the application
 
     2. Get the twilio credentials
 
+        2.1. Go to https://signup.sendgrid.com/ and create an account.
+        2.2. Go to ->Settings->API Keys->Create API Key.
+        2.3. Go to ->Guide->Add Sender identity.
+        2.4. Set the value of the MAIL_API_KEY environment variable to be the API key created in step 2 .
+
     3. Setting up the server
         3.1. Install Nodejs with version >=15 as per your operating system from `https://nodejs.org/en/download/`.
         3.2. Navigate to the `CODE` directory.
