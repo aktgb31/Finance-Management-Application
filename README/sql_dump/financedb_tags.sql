@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (arm64)
 --
 -- Host: localhost    Database: financedb
 -- ------------------------------------------------------
--- Server version	8.0.26
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -36,7 +36,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Food',-1),(2,'Transport',-1),(3,'Entertainment',-1),(4,'Tuition',1),(5,'Investment',1),(6,'Hostel Fees',1),(7,'Books',1),(8,'Clothing',1),(9,'Miscellaneous',1);
+INSERT INTO `tags` VALUES (1,'Food',-1),(2,'Transport',-1),(3,'Entertainment',-1),(4,'Tuition',-1),(5,'Investment',-1),(6,'Hostel Fees',-1),(7,'Books',-1),(8,'Clothing',-1),(9,'Miscellaneous',-1);
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-04 15:14:55
+-- Dump completed on 2022-11-04 17:28:19
