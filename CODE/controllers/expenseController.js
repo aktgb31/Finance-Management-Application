@@ -20,7 +20,7 @@ exports.addExpense = catchAsyncErrors(async (req, res, next) => {
     validateRemarks(remarks);
     validateTagId(tagId);
     const expense = await Expense.create({ amount, date: iDate, remarks, tagId, userEmailId: emailId });
-    req.session.message = { success: true, text: "Expense Added Succesfully" };
+    req.session.message = { success: true, text: "Expense Added Successfully" };
     res.redirect("/expense/add")
 });
 
@@ -41,7 +41,7 @@ exports.getExpensesByTagEmail = async (emailId, tag) => {
 exports.deleteExpense = catchAsyncErrors(async (req, res, next) => {
     const expense = await Expense.findByPk(req.params.id);
     await expense.destroy();
-    req.session.message = { success: true, text: "Expense Deleted Succesfully" };
+    req.session.message = { success: true, text: "Expense Deleted Successfully" };
     res.redirect("/");
 });
 
@@ -53,6 +53,6 @@ exports.updateExpense = catchAsyncErrors(async (req, res, next) => {
     validateTagId(tagId);
     const expense = await Expense.findByPk(req.params.id);
     await expense.update({ amount, date, remarks, tagId });
-    req.session.message = { success: true, text: "Expense Updated Succesfully" };
+    req.session.message = { success: true, text: "Expense Updated Successfully" };
     res.redirect("/");
 });

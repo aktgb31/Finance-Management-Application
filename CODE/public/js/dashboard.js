@@ -1,7 +1,6 @@
 $(document).ready(function () {
   var color_dict = {"Food" : "#064E40", "Transport" : "#0DAD8D", "Entertainment" : "#1164B4", "Tuition" : "#30BFBF", "Investment" : "#0C98BA" , "Hostel Fees": "#3464eb", "Books": "#34eb8c", "Clothing": "#eb8034", "Miscellaneous": "#7434eb"};
   
-
   // creating a sum dictionary that contains the total expenditure for each tag
   var sum_dict = {};
   var count = Object.keys(expenses).length;

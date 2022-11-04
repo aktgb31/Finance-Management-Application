@@ -138,7 +138,12 @@
   }.bind(document.getElementById("passwordShow")));
 
   document.getElementById("delet").addEventListener("click", function () {
-    confirm("Are you sure?");
+    if(confirm("Are you sure?")){
+      console.log("Account deleted");
+    }
+    else{
+      location.reload();
+    }
   });
 </script>
 <script type="text/javascript" src="js/profile.js"></script>

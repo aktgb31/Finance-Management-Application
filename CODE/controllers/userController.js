@@ -34,7 +34,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
         userInserted.destroy(); // No waiting for destruction
         throw err;
     }
-    req.session.message = { success: true, text: "Registeration Succesfull. Your password is sent to your email id." };
+    req.session.message = { success: true, text: "Registeration Successful. Your password is sent to your email id." };
     res.redirect("/login");
 });
 
@@ -59,7 +59,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(400, "Invalid Username or Password"));
     }
     req.session.user = { name: user.name, emailId: user.emailId };
-    req.session.message = { success: true, text: "Login Succesfull" };
+    req.session.message = { success: true, text: "Login Successful" };
     res.redirect("/");
 });
 
@@ -68,7 +68,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
     // req.session.destroy();
     // res.clearCookie("connect.sid");
     req.session.user = null;
-    req.session.message = { success: true, text: "Logout Succesfull" };
+    req.session.message = { success: true, text: "Logout Successful" };
     res.on('finish', req.session.destroy);
     res.redirect("/login");
 });
@@ -114,7 +114,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
         await profile.update({ password: password, name: name });
     }
     req.session.user = { name: name, emailId: emailId };
-    req.session.message = { success: true, text: "Profile Updated Succesfully" };
+    req.session.message = { success: true, text: "Profile Updated Successfully" };
     res.redirect("/user/profile")
 });
 
@@ -125,7 +125,7 @@ exports.deleteProfile = catchAsyncErrors(async (req, res, next) => {
     // req.session.destroy();
     // res.clearCookie("connect.sid");
     req.session.user = null;
-    req.session.message = { success: true, text: "Profile Deleted Succesfully" };
+    req.session.message = { success: true, text: "Profile Deleted Successfully" };
     res.on('finish', req.session.destroy);
     res.redirect("/login");
 });
@@ -146,6 +146,6 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     const password = passwordGenerator();
     await user.update({ password: password });
     await sendVerificationEmail(emailId, password);
-    req.session.message = { success: true, text: "Password Reset Succesfull. Your password is sent to your email id." };
+    req.session.message = { success: true, text: "Password Reset Successful. Your password is sent to your email id." };
     res.redirect("/login");
 });
