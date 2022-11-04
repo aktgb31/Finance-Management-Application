@@ -1,13 +1,13 @@
 {{!-- Div with a cross button to show success/error message --}}
 {{#if message}}
-<div class="alert {{#if message.success}}alert-success{{/if}}{{#if message.error}}alert-danger{{/if}}" role="alert" id="alert-box" style="margin-bottom:10px">
+<div class="alert {{#if message.success}}alert-success{{/if}}{{#if message.error}}alert-danger{{/if}}" role="alert"
+    id="alert-box" style="margin-bottom:10px">
     {{message.text}}
 </div>
-{{/if}}
-
 <script>
     setTimeout(() => {
         const box = document.getElementById('alert-box');
         box.style.display = 'none';
-}, 3000); 
+    }, 3000); 
 </script>
+{{/if}}

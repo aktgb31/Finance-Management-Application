@@ -17,6 +17,12 @@ const Db = new Sequelize(DATABASE.name, DATABASE.user, DATABASE.pass, {
     host: DATABASE.uri,
     dialect: "mysql",
     logging: false,
+    pool: {
+        max: 501,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
 });
 
 module.exports = Db;

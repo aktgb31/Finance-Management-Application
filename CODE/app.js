@@ -22,6 +22,7 @@ app.use(
     })
 )
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 // Hbs register json helper
